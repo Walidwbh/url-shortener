@@ -1,8 +1,7 @@
 // section home
 section.home {
-  // padding-top: 100px;
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh + 80px);
   .container {
     position: absolute;
     left: 50%;
@@ -13,15 +12,13 @@ section.home {
     justify-content: space-between;
     gap: 100px;
     // description
-    .description{
+    .description {
       h1 {
         font-size: 4rem;
         line-height: 1.4;
         color: var(--primary-dark-violet);
       }
-      p {
-        color: var(--neutral-grayish-violet);
-      }
+
       button.started {
         margin-top: 30px;
       }
@@ -31,10 +28,55 @@ section.home {
       width: 500px;
     }
     // Media queries
-    @media (max-width:1199px) {
+    @media (max-width: 1199px) {
       img {
         width: 350px;
       }
+    }
+  }
+  form {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    // width: inherit;
+    background-color: var(--neutral-very-dark-violet);
+    background-image: url("../assets/bg-shorten-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-family: inherit;
+      border-radius: 10px;
+    }
+    input[type="text"]:focus {
+      outline: none;
+    }
+    input[type="text"]::placeholder {
+      color: var(--neutral-gray);
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: inherit;
+      color: white;
+      background-color: var(--primary-cyan);
+      outline: none;
+      border: none;
+      border-radius: 10px;
+      transition: var(--main-transition);
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #2acfcf80;
     }
   }
 }
@@ -47,56 +89,75 @@ section.home {
       .description {
         order: 2;
         text-align: center;
-        h1{
+        h1 {
           font-size: 2rem;
         }
+      }
+    }
+    form {
+      background-image: url("../assets/bg-shorten-mobile.svg");
+      flex-direction: column;
+      width: 300px;
+      input[type="text"] {
+        width: 100%;
+      }
+      input[type="submit"] {
+        width: 100%;
       }
     }
   }
 }
 // section stats
 section.stats {
-  min-height: 100vh;
-  background-color: var(--neutral-grayish-violet);
+  padding: 100px 0;
+  background-color: #9e9aa74d;
   .container {
-    form {
-      background-color: var(--neutral-very-dark-violet);
-      background-image: url("../assets/bg-shorten-desktop.svg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 30px 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    position: relative;
+    >h1,
+    >p {
+      text-align: center;
+    }
+    .boxes {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 20px;
-      input[type="text"]{
-        flex: 1;
-        padding: 10px 20px;
-        font-size: 1rem;
-        font-family: inherit;
-        border-radius: 10px;
+      .box {
+        position: relative;
+        background-color: white;
+        padding: 60px 20px 20px;
+        border-radius: 6px;
+        .logo {
+          position: absolute;
+          top: -35px;
+          left: 30px;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          background-color: var(--neutral-very-dark-violet);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        p {
+          font-size: 16px;
+        }
       }
-      input[type="text"]:focus {
-        outline: none;
+      .box:nth-child(2) {
+        transform: translateY(20px);
       }
-      input[type="text"]::placeholder {
-        color: var(--neutral-gray);
+      .box:nth-child(3) {
+        transform: translateY(40px);
       }
-      input[type="submit"] {
-        padding: 10px 20px;
-        font-size: 16px;
-        font-family: inherit;
-        color: white;
+      .box:not(:nth-child(3))::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 10px;
         background-color: var(--primary-cyan);
-        outline: none;
-        border: none;
-        border-radius: 10px;
-        transition: var(--main-transition);
-        cursor: pointer;
-      }
-      input[type="submit"]:hover {
-        background-color: #2acfcf80;
       }
     }
   }
@@ -105,13 +166,63 @@ section.stats {
 @media (max-width: 768px) {
   section.stats {
     .container {
-      form {
-        background-image: url("../assets/bg-shorten-mobile.svg");
-        flex-direction: column;
-        input[type="text"] {
-          width: 100%;
+      .boxes {
+        gap: 100px;
+        .box {
+          text-align: center;
+          .logo {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .box:nth-child(2) {
+          transform: translateY(0);
+        }
+        .box:nth-child(3) {
+          transform: translateY(0);
+        }
+        .box:not(:nth-child(3))::after {
+          top: 100%;
+          right: 48%;
+          transform: translateY(0);
+          width: 10px;
+          height: 100px;
         }
       }
+    }
+  }
+}
+@media (max-width: 992px) {
+  section.stats {
+    .container {
+      .boxes {
+        .box:nth-child(2) {
+          transform: translateY(0);
+        }
+        .box:nth-child(3) {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+// Boost section
+section.boost {
+  padding: 50px 0px;
+  text-align: center;
+  background-color: var(--primary-dark-violet);
+  background-image: url("../assets/bg-boost-desktop.svg");
+  background-size: cover;
+  h1 {
+    color: white;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 768px) {
+  section.boost {
+    background-image: url("../assets/bg-boost-mobile.svg");
+    h1 {
+      font-size: 20px;
     }
   }
 }
