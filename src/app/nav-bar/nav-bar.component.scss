@@ -1,0 +1,97 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 30px 0;
+  z-index: 9999;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--neutral-very-dark-violet);
+    }
+    ul.nav-list{
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 30px;
+      transition: var(--main-transition);
+      z-index: 9999;
+      li.nav-item {
+        a {
+          font-weight: bold;
+          color: var(--neutral-grayish-violet);
+          transition: var(--main-transition);
+        }
+        a:hover {
+          color: var(--primary-dark-violet);
+        }
+      }
+    }
+    // hamburger menu
+    .hamburger {
+      display: none;
+      cursor:pointer;
+      margin-right: 10px;
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        -webkit-transition: all var(--main-transition) ease-in-out;
+        transition: all var(--main-transition) ease-in-out;
+        background-color: var(--primary-dark-violet);
+        border-radius: 6px;
+      }
+    }
+  }
+}
+// MEDIA QUERIES FOR NAVBAR
+@media (max-width: 768px) {
+  nav{
+    .container {
+      // hamburger menu
+      .hamburger {
+        display: block;
+      }
+      .hamburger.active {
+        .bar:nth-child(2){
+          opacity: 0;
+        }
+        .bar:nth-child(1){
+          transform: translateY(8px) rotate(45deg);
+        }
+        .bar:nth-child(3){
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+      // navlist
+      ul.nav-list{
+        padding: 40px 0px;
+        position: fixed;
+        left: -100%;
+        top: 100px;
+        width: 80%;
+        flex-direction: column;
+        background-color: var(--primary-dark-violet);
+        border-radius: 10px;
+        li.nav-item {
+          a {
+            color: white;
+          }
+          a:hover {
+            color: white;
+          }
+        }
+      }
+      ul.nav-list.active {
+        left: 10%;
+        box-shadow: 0 10px 100px rgb(0 0 0 / 10%);
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<nav>
+  <div class="container">
+    <div class="logo">Shortly</div>
+    <ul class="nav-list" [class.active]="isClicked == true">
+      <li class="nav-item" (click)="toggleClick()"><a href="#features">Features</a></li>
+      <li class="nav-item" (click)="toggleClick()"><a href="#pricing">Pricing</a></li>
+      <li class="nav-item" (click)="toggleClick()"><a href="#resources">Resources</a></li>
+    </ul>
+    <div (click)="toggleClick()" class="hamburger" [class.active]="isClicked == true">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</nav>

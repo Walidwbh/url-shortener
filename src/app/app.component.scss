@@ -1,0 +1,117 @@
+// section home
+section.home {
+  // padding-top: 100px;
+  position: relative;
+  min-height: 100vh;
+  .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    // description
+    .description{
+      h1 {
+        font-size: 4rem;
+        line-height: 1.4;
+        color: var(--primary-dark-violet);
+      }
+      p {
+        color: var(--neutral-grayish-violet);
+      }
+      button.started {
+        margin-top: 30px;
+      }
+    }
+    // img
+    img {
+      width: 500px;
+    }
+    // Media queries
+    @media (max-width:1199px) {
+      img {
+        width: 350px;
+      }
+    }
+  }
+}
+// MEDIA QUERIES FOR SECTION HOME
+@media (max-width: 992px) {
+  section.home {
+    .container {
+      flex-direction: column;
+      gap: 0;
+      .description {
+        order: 2;
+        text-align: center;
+        h1{
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+// section stats
+section.stats {
+  min-height: 100vh;
+  background-color: var(--neutral-grayish-violet);
+  .container {
+    form {
+      background-color: var(--neutral-very-dark-violet);
+      background-image: url("../assets/bg-shorten-desktop.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 30px 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      input[type="text"]{
+        flex: 1;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-family: inherit;
+        border-radius: 10px;
+      }
+      input[type="text"]:focus {
+        outline: none;
+      }
+      input[type="text"]::placeholder {
+        color: var(--neutral-gray);
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: inherit;
+        color: white;
+        background-color: var(--primary-cyan);
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        transition: var(--main-transition);
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #2acfcf80;
+      }
+    }
+  }
+}
+// MEDIA QUERIES
+@media (max-width: 768px) {
+  section.stats {
+    .container {
+      form {
+        background-image: url("../assets/bg-shorten-mobile.svg");
+        flex-direction: column;
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
