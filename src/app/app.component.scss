@@ -78,6 +78,14 @@ section.home {
     input[type="submit"]:hover {
       background-color: #2acfcf80;
     }
+    .error {
+      position: absolute;
+      bottom: 5px;
+      left: 40px;
+      color: red;
+      font-style: italic;
+      font-size: 16px;
+    }
   }
 }
 // MEDIA QUERIES FOR SECTION HOME
@@ -98,11 +106,18 @@ section.home {
       background-image: url("../assets/bg-shorten-mobile.svg");
       flex-direction: column;
       width: 300px;
+      gap: 30px;
+      bottom: -70px;
       input[type="text"] {
         width: 100%;
       }
       input[type="submit"] {
         width: 100%;
+      }
+      .error {
+        bottom: 45%;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }
@@ -116,6 +131,43 @@ section.stats {
     >h1,
     >p {
       text-align: center;
+    }
+    .shorted {
+      background-color: white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 20px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      .url {
+        flex: 1;
+        color: var(--primary-dark-violet);
+      }
+      .short-url {
+        color: var(--primary-cyan);
+      }
+      button.copy {
+        width: 70px;
+        height: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: var(--primary-cyan);
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: var(--main-transition);
+      }
+      button.copy:hover {
+        background-color: #2acfcf80;
+      }
+      button.copied {
+        background-color: var(--primary-dark-violet);
+        pointer-events: none;
+      }
     }
     .boxes {
       margin-top: 50px;
@@ -166,6 +218,9 @@ section.stats {
 @media (max-width: 768px) {
   section.stats {
     .container {
+      .shorted {
+        font-size: 14px;
+      }
       .boxes {
         gap: 100px;
         .box {
