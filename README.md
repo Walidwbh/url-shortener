@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <img src="src/assets/shorted.png">
 
-<div style="display: flex; align-items: center; justify-content: space-between;">
+<div style="display: flex; align-items: center; justify-content: space-between; gap:20px">
 
 <img src="src/assets/mobile1.png"><img src="src/assets/mobile2.png">
 </div>
