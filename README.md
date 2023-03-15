@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+## Demo 
+
+<img src="src/assets/home.png">
+
 ## Install dependancies
 
 Run `npm install` to install dependancies used in this project.
