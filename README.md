@@ -10,7 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <img src="src/assets/shorted.png">
 
-<img src="src/assets/mobile1.png">
+<img src="src/assets/mobile1.png" style="display: inline">
 
 <img src="src/assets/mobile2.png">
 
