@@ -9,7 +9,7 @@ import { ShortlyServiceService } from './services/shortly-service.service';
 })
 export class AppComponent implements OnInit  {
   // declare the copy button
-  isCopied: boolean = false;
+  @ViewChild('copy') copy!: ElementRef;
   title = 'url-shortener';
   shortUrl: any;
   myForm!:FormGroup;
@@ -18,7 +18,6 @@ export class AppComponent implements OnInit  {
   myShortUrls:any[]=[];
   constructor(private shortlyService: ShortlyServiceService, private fb:FormBuilder){}
   ngOnInit():void {
-    // this.getShortLink();
     this.validUrl()
   }
   validUrl(){
@@ -30,16 +29,13 @@ export class AppComponent implements OnInit  {
 }
   getShortLink(){
     this.shortlyService.getShortLink(this.myForm.get('url')?.value).subscribe((data)=>{
-      // console.log(data.result.short_link);
       this.myUrls.push(this.myForm.get('url')?.value);
       this.myShortUrls.push(data.result.short_link);
-      console.log(this.myUrls)
-      console.log(this.myShortUrls)
     })
   }
-  copyUrl(event: any){
-    navigator.clipboard.writeText(event.target.previousElementSibling.innerText);
-    event.target.classList.add("copied");
-    event.target.innerText = "Copied!"
+  copyUrl(){
+    navigator.clipboard.writeText(this.copy.nativeElement.previousElementSibling.innerText);
+    this.copy.nativeElement.classList.add("copied");
+    this.copy.nativeElement.innerText = "Copied!"
   }
 }

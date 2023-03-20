@@ -29,7 +29,7 @@
     <div class="shorted" *ngFor="let url of myUrls; let i = index">
       <div class="url">{{url}}</div>
       <div class="short-url">{{myShortUrls[i]}}</div>
-      <button #copy class="copy" (click)="copyUrl($event)" >Copy</button>
+      <button #copy class="copy" (click)="copyUrl()" >Copy</button>
     </div>
     <h1>Advanced Statistics</h1>
     <p>Track how your links are performing acrooss the web with <br> our advanced statistics dashboard.</p>
