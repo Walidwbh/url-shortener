@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+## Demo 
+
+<img src="src/assets/home.png">
+
+<img src="src/assets/shorten.png">
+
+<img src="src/assets/shorted.png">
+
+<div style="display: flex; align-items: center; justify-content: space-between; gap:20px">
+
+<img src="src/assets/mobile1.png"><img src="src/assets/mobile2.png">
+</div>
+
+
 ## Install dependancies
 
 Run `npm install` to install dependancies used in this project.
